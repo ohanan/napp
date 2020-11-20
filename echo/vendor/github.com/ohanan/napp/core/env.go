@@ -6,16 +6,13 @@ type Env interface {
 	StdIn() *os.File
 	StdOut() *os.File
 	StdErr() *os.File
+	Flags() []string
 }
 
 func NewDefaultEnv(flags []string) Env { return &defaultEnv{flags: flags} }
 
 type defaultEnv struct {
 	flags []string
-}
-
-func (e defaultEnv) Flag() Flag {
-	panic("implement me")
 }
 
 func (e defaultEnv) StdIn() *os.File { return os.Stdin }

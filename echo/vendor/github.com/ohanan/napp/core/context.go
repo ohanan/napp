@@ -5,17 +5,11 @@ import "context"
 type Context interface {
 	context.Context
 	Env
-	Flag() Flag
 }
 
 type defaultContext struct {
-	context.Context
 	Env
-	flag Flag
-}
-
-func (d defaultContext) Flag() Flag {
-	return d.flag
+	context.Context
 }
 
 func DefaultContext(env Env) Context {
